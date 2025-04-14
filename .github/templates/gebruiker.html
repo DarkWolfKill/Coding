@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Gebruiker Toevoegen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        input {
+            display: block;
+            width: 100%;
+            padding: 5px;
+        }
+        input[type="submit"],
+        a.button {
+            background: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover,
+        a.button:hover {
+            background: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Voeg een Gebruiker Toe</h2>
+        <form action="/gebruiker_toevoegen" method="POST">
+            <ul>
+                <li>Voornaam <input type="text" name="voornaam" required></li>
+                <li>Achternaam <input type="text" name="achternaam" required></li>
+                <li>Email <input type="email" name="email" required></li>
+                <li>Telefoon <input type="text" name="telefoon" required></li>
+                <li>Geboortedatum <input type="date" name="geboortedatum" required></li>
+                <li>Straat <input type="text" name="straatnaam" required></li>
+                <li>Huisnummer <input type="text" name="huisnummer" required></li>
+                <li>Postcode <input type="text" name="postcode" required></li>
+            </ul>
+            <input type="submit" value="Toevoegen">
+        </form>
+        <a href="/" class="button">Terug naar Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Bestelling Plaatsen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        h2 {
+            text-align: center;
+        }
+        input, label, select {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            background: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        input[type="submit"]:hover {
+            background: darkblue;
+        }
+        a.button {
+            text-align: center;
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Bestelling plaatsen</h2>
+        <form action="/bestelling_plaatsen" method="POST">
+            <label>Selecteer gebruiker</label>
+            <select name="gebruiker_id" required>
+                {% for gebruiker in gebruikers %}
+                <option value="{{ gebruiker[0] }}">{{ gebruiker[1] }} {{ gebruiker[2] }}</option>
+                {% endfor %}
+            </select>
+            <label>Selecteer product</label>
+            <select name="product_id" required>
+                {% for product in producten %}
+                <option value="{{ product[0] }}">{{ product[2] }} ({{ product[1] }})</option>
+                {% endfor %}
+            </select>
+            <label>Aantal</label>
+            <input type="number" name="aantal" min="1" required>
+            <input type="submit" value="Plaats bestelling">
+        </form>
+        <a class="button" href="/">Terug naar Home</a>
+    </div>
+</body>
+</html>

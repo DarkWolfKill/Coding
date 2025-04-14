@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startpagina</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        a.button {
+            display: block;
+            background: blue;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 5px;
+            margin: 10px 0;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        a.button:hover {
+            background: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welkom bij de bestelapplicatie</h1>
+        <a href="/gebruiker_toevoegen" class="button">Gebruiker toevoegen</a>
+        <a href="/product_toevoegen" class="button">Product toevoegen</a>
+        <a href="/bestelling_plaatsen" class="button">Bestelling plaatsen</a>
+        <a href="/overzicht" class="button">Overzicht bekijken</a>
+    </div>
+</body>
+</html>

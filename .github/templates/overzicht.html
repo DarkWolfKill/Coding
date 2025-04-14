@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Overzicht Bestellingen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f8f8;
+            padding: 30px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Overzicht van Bestellingen</h1>
+
+    {% if bestellingen %}
+    <table>
+        <thead>
+            <tr>
+                <th>Bestelling ID</th>
+                <th>Voornaam</th>
+                <th>Achternaam</th>
+                <th>Product</th>
+                <th>Datum Bestelling</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for b in bestellingen %}
+            <tr>
+                <td>{{ b.id }}</td>
+                <td>{{ b.voornaam }}</td>
+                <td>{{ b.achternaam }}</td>
+                <td>{{ b.naam }}</td>
+                <td>{{ b.datum_bestelling }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p style="text-align: center; color: #888;">Er zijn nog geen bestellingen geplaatst.</p>
+    {% endif %}
+
+    <a class="back-link" href="/">← Terug naar Home</a>
+
+</body>
+</html>
