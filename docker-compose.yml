@@ -1,0 +1,45 @@
+version: "3.7"
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: flask_db
+    environment:
+      MYSQL_ROOT_PASSWORD: Toetsenbord11!
+      MYSQL_DATABASE: winkel
+      MYSQL_USER: user
+      MYSQL_PASSWORD: Toetsenbord11!
+    networks:
+      - mynetwork
+    volumes:
+      - mysql-data:/var/lib/mysql
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uuser -pToetsenbord11!"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  flask_app:
+    build: .
+    container_name: flask_app
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    networks:
+      - mynetwork
+    restart: always
+    environment:
+      DB_HOST: mysql
+      DB_DATABASE: winkel
+      DB_USER: user
+      DB_PASSWORD: Toetsenbord11!
+
+networks:
+  mynetwork:
+    driver: bridge
+
+volumes:
+  mysql-data:
