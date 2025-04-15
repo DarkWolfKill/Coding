@@ -47,7 +47,7 @@ jobs:
         name: flask-webapp
         location: 'north europe'
         ports: '3000'
-        azure-file-volume-share-name: vdvbstorage2025
+        azure-file-volume-share-name: dataapplicatie
         azure-file-volume-account-name: ${{ secrets.STORAGE_ACCOUNT_NAME }}
         azure-file-volume-account-key: ${{ secrets.STORAGE_ACCOUNT_KEY }}
         azure-file-volume-mount-path: /mnt/azfiles
